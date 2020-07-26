@@ -1,0 +1,29 @@
+<app-menu vendedor="true" titulo="{{name}}" solicitudes="{{cantRequest}}">
+</app-menu>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-menu-button slot="start" menu="first"></ion-menu-button>
+        <ion-title> Solicitudes </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content id="main">
+    <ion-card *ngFor="let solicitud of list" (click)="requestDetail(solicitud.id)">
+        <div class="imgBox">
+            <img [src]="solicitud.imagen" class="img-responsive" id="imgCard">
+        </div>
+        <ion-card-header>
+            <ion-card-subtitle>
+                <ion-icon name="bookmarks-sharp"></ion-icon>
+                Producto
+                <b class="fecha">
+                    {{solicitud.fecha | date}}
+                </b>
+            </ion-card-subtitle>
+            <ion-card-title>{{solicitud.producto | titlecase}} </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{solicitud.descripcion}}
+        </ion-card-content>
+    </ion-card>
+</ion-content>

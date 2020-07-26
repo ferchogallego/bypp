@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Datos del Comprador</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-item *ngIf="imgUser == true" class="ion-text-center">
+        <ion-img class="perfil" [src]="imgPerfil"></ion-img>
+    </ion-item>
+    <ion-item *ngIf="imgUser == false" class="ion-text-center">
+        <ion-img class="perfil" src="../../../assets/img/user.svg"></ion-img>
+    </ion-item>
+    <ion-item *ngIf="company == true" class="ion-text-center">
+        <p>
+            <ion-icon slot="start" name="newspaper-outline"></ion-icon>
+            Comprador: <b>Empresa</b>
+        </p>
+    </ion-item>
+    <ion-item>
+        <p>
+            <ion-icon name="card-outline"></ion-icon>
+            Nombre: <b>{{nombre}}</b>
+        </p>
+    </ion-item>
+    <ion-item>
+        <p>
+            <ion-icon name="mail-unread-outline"></ion-icon>
+            E-mail: <b>{{email}}</b>
+        </p>
+    </ion-item>
+    <ion-item>
+        <p>
+            <ion-icon name="call-outline"></ion-icon>
+            Teléfono: <b>{{phone}}</b>
+        </p>
+    </ion-item>
+
+</ion-content>

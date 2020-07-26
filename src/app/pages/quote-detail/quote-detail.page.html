@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Datos de la cotización</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        <div class="imgBox">
+            <img [src]="imagen" class="img-responsive" id="imgCard" (click)="fullScreenImage(imagen)">
+        </div>
+    </ion-item>
+    <ion-item>
+        <ion-icon slot="start" name="bookmarks"></ion-icon>
+        <b>{{categoria | titlecase}}</b> - {{subcategoria | titlecase}}
+        <ion-icon slot="end" name="flag"></ion-icon>
+    </ion-item>
+    <div class="ion-padding">
+        <p>
+            <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+            Producto: <b>{{producto | titlecase}}</b>
+        </p>
+        <p>
+            <ion-icon slot="start" name="list-outline"></ion-icon>
+            <b> {{cantidad}}</b> unid <b>{{producto | titlecase}}</b> - <b>{{marca | titlecase}}</b> {{referencia}}
+        </p>
+        <p>
+            <ion-icon slot="start" name="location-outline"></ion-icon>
+            Entrega: {{fecha | date}}
+        </p>
+        <p>
+            <ion-icon slot="start" name="document-attach-outline"></ion-icon>
+            Referencia Cotización: <b>{{referencia | titlecase}}</b>
+        </p>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <p class="ion-text-right">
+                        <ion-button expand="full" color="secondary" fill="outline" shape="round" (click)="requestDetail(solicitud)">Ver solicitud</ion-button>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <p class="ion-text-left" *ngIf="adjudicada == 'true'">
+                        <ion-button expand="full" color="secondary" shape="round" (click)="buyerDetail(destinatario)">Comprador</ion-button>
+                    </p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <p id="desc">{{descripcion}}</p>
+    </div>
+</ion-content>

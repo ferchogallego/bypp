@@ -1,0 +1,47 @@
+<ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+        <ion-toolbar color="primary" class="ion-padding">
+            <ion-thumbnail *ngIf="load == true" slot="start">
+                <img [src]="imgPerfil" alt="">
+            </ion-thumbnail>
+            <ion-thumbnail *ngIf="load == false" slot="start">
+                <img src="../../../assets/img/user.svg" alt="">
+            </ion-thumbnail>
+            <ion-text class="ion-padding">Bienvenido:</ion-text><br>
+            <ion-text class="ion-padding">{{titulo | titlecase}}</ion-text><br>
+            <ion-text class="ion-padding"><b>Empresa</b></ion-text>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-menu-toggle>
+                <ion-item routerLinkActive="router-link-active">
+                    <ion-icon slot="start" name="pricetags-outline"></ion-icon>
+                    Solicitudes de compra
+                    <ion-badge slot="end" color="secondary" mode="ios">{{solicitudes}}</ion-badge>
+                </ion-item>
+            </ion-menu-toggle>
+            <ion-item [routerLink]="['/quotes-sent']" routerLinkActive="router-link-active">
+                <ion-icon slot="start" name="card-outline"></ion-icon>
+                Cotizaciones enviadas
+                <ion-badge slot="end" color="primary" mode="ios">{{cantQuote}}</ion-badge>
+            </ion-item>
+            <ion-item [routerLink]="['/quotes-accepted']" routerLinkActive="router-link-active">
+                <img slot="start" src="../../../assets/img/sale.png" width="27" alt=""> Adjudicadas
+                <ion-badge slot="end" color="warning" mode="ios">{{sales}}</ion-badge>
+            </ion-item>
+
+            <ion-item [routerLink]="['/profile']" routerLinkActive="router-link-active">
+                <ion-icon slot="start" name="person-circle-outline"></ion-icon>Mi Perfil
+            </ion-item>
+            <ion-item *ngIf="vendedor">
+                <ion-icon slot="start" name="people-outline"></ion-icon>
+                Vendedores
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="exit-outline"></ion-icon>
+                Cerrar sesión
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>

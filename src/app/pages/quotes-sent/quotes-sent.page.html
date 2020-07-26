@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cotizaciones enviadas</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card *ngFor="let list of listQuote">
+        <ion-item *ngIf="list.adjudicada == 'true'">
+            <img slot="start" src="../../../assets/img/crown.png" width="30" alt="">
+            <h4>Solicitud adjudicada</h4>
+        </ion-item>
+        <ion-item>
+            <img [src]="list.imagen" slot="start" class="img-responsive" width="100" height="100">
+            <ion-label><b>{{list.producto | titlecase}}:</b></ion-label>
+            <ion-label>{{list.marca | titlecase}}</ion-label>
+            <ion-button fill="outline" slot="end" (click)="openQuoteDetail(list.id)">Ver</ion-button>
+        </ion-item>
+        <ion-card-content>
+            <p><b>{{list.referencia}}</b></p>
+            <p>This is content, without any paragraph or header tags, within an ion-card-content element.</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

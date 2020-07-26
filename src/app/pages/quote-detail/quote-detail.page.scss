@@ -1,0 +1,30 @@
+.imgBox {
+    width: 100%;
+    height: 300px;
+}
+
+#imgCard {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: auto;
+    height: 300px;
+}
+
+@supports(object-fit: cover) {
+    #imgCard {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: auto;
+        height: 300px;
+    }
+}
+
+.btnVer {
+    text-align: right;
+}

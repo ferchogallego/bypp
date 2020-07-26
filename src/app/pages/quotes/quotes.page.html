@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Detalles de la cotización</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="sendQuote" (ngSubmit)="sendQuoteUser(sendQuote.value)">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">Número de cotización</ion-label>
+                <ion-input formControlName="cotizacion" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Marca del producto</ion-label>
+                <ion-input formControlName="marca" type="text"></ion-input>
+            </ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-item>
+                            <ion-label position="floating">Referencia producto:</ion-label>
+                            <ion-input formControlName="referencia" type="text"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-item>
+                            <ion-label position="floating">Cantidad:</ion-label>
+                            <ion-input formControlName="cantidad" type="number"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-item>
+                <ion-label>Fecha de envío</ion-label>
+                <ion-datetime formControlName="fecha" displayFormat="MM DD YY" placeholder="Seleccione fecha"></ion-datetime>
+            </ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-item>
+                            <ion-label position="floating">Precio unidad:</ion-label>
+                            <ion-input formControlName="precio" type="number"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-item>
+                            <ion-label position="floating">Precio del flete:</ion-label>
+                            <ion-input formControlName="flete" type="number"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-item>
+                <input type="file" name="file" id="file" class="fileInput" (change)="handleImage($event)" />
+                <label for="file"><ion-icon size="large" name="camera-outline"></ion-icon><b>Imagen del producto</b></label>
+                <ion-thumbnail slot="end">
+                    <ion-img [src]="imageSrc"></ion-img>
+                </ion-thumbnail>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Descripción</ion-label>
+                <ion-textarea rows="6" cols="20" formControlName="descripcion" placeholder="Ingrese detalles del producto">
+                </ion-textarea>
+            </ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-button expand="block" (click)="cancel()">
+                            Cancelar
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-button type="submit" expand="block" fill="outline">
+                            Cotizar
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </ion-list>
+    </form>
+</ion-content>
